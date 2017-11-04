@@ -13,6 +13,7 @@ import utils.io.FileWriter;
 import utils.io.Writer;
 
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Application {
@@ -44,12 +45,17 @@ public class Application {
 //            System.out.println(user.toString());
 //        }
 
-        User user = users.get(4);
-        createAccountProcess.execute(new AccountObserver(), CreateAccount.Params.forAccount(user.getName(), user.getUsername(), user.getEmail(), user.getPassword()));
-        try {
-            Thread.sleep(15000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
+        List<User> testUsers = new ArrayList<>(3);
+        testUsers.add(users.get(6));
+        testUsers.add(users.get(7));
+        testUsers.add(users.get(8));
+        for (User user : testUsers) {
+            createAccountProcess.execute(new AccountObserver(), CreateAccount.Params.forAccount(user.getName(), user.getUsername(), user.getEmail(), user.getPassword()));
+            try {
+                Thread.sleep(5000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         }
     }
 
