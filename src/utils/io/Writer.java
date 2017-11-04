@@ -1,7 +1,5 @@
-package utils.file;
+package utils.io;
 
-
-import io.reactivex.Observable;
 
 public interface Writer<T> {
 

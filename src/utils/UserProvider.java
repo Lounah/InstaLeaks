@@ -1,10 +1,9 @@
 package utils;
 
 import domain.model.User;
-import utils.file.FileReader;
+import utils.io.FileReader;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public final class UserProvider {

@@ -1,4 +1,4 @@
-package utils.file;
+package utils.io;
 
 import domain.model.User;
 import io.reactivex.Observable;
@@ -6,7 +6,6 @@ import io.reactivex.Observable;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.List;
 
 public class FileReader implements Reader<User> {
 
