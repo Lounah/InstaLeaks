@@ -1,16 +1,16 @@
 package utils.io;
 
-import domain.model.User;
+import domain.model.Account;
 import io.reactivex.Observable;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
-public class FileReader implements Reader<User> {
+public class FileReader implements Reader<Account> {
 
     @Override
-    public Observable<User> read(String path) {
+    public Observable<Account> read(String path) {
 
         return Observable.create(emitter -> {
             String[] credentialsData;
@@ -20,8 +20,8 @@ public class FileReader implements Reader<User> {
                 br = new BufferedReader(new java.io.FileReader(path), 1000 * 8192);
                 while ((curr_line = br.readLine()) != null) {
                     credentialsData = curr_line.split(" ");
-                    User currentUser = new User(credentialsData[0], credentialsData[1], credentialsData[2], credentialsData[3]);
-                    emitter.onNext(currentUser);
+                    Account currentAccount = new Account(credentialsData[0], credentialsData[1], credentialsData[2], credentialsData[3]);
+                    emitter.onNext(currentAccount);
                 }
 
                 if (br.readLine() == null) {

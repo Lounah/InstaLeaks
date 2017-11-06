@@ -1,10 +1,10 @@
 package domain.interactor;
 
-import domain.model.User;
+import domain.model.Account;
 import domain.repository.AccountRepository;
 import io.reactivex.Observable;
 
-public class CreateAccount extends UseCase<User, CreateAccount.Params> {
+public class CreateAccount extends UseCase<Account, CreateAccount.Params> {
 
     private final AccountRepository repository;
 
@@ -13,7 +13,7 @@ public class CreateAccount extends UseCase<User, CreateAccount.Params> {
     }
 
     @Override
-    Observable<User> buildUseCaseObservable(CreateAccount.Params params) {
+    Observable<Account> buildUseCaseObservable(CreateAccount.Params params) {
         return repository.createAccount(params.name, params.username, params.email, params.password);
     }
 

@@ -1,6 +1,6 @@
 package domain.model;
 
-public class User {
+public class Account {
 
     private String name;
     private String username;
@@ -40,9 +40,9 @@ public class User {
     }
 
 
-    public User() {}
+    public Account() {}
 
-    public User(final String name, final String username, final String email, final String password) {
+    public Account(final String name, final String username, final String email, final String password) {
         this.name = name;
         this.username = username;
         this.email = email;

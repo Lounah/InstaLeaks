@@ -6,6 +6,8 @@ import io.reactivex.disposables.Disposable;
 import io.reactivex.observers.DisposableObserver;
 import io.reactivex.schedulers.Schedulers;
 
+import java.util.concurrent.TimeUnit;
+
 public abstract class UseCase<T, P> {
     private final CompositeDisposable disposables;
 
@@ -16,9 +18,7 @@ public abstract class UseCase<T, P> {
     abstract Observable<T> buildUseCaseObservable(P params);
 
     public void execute(DisposableObserver<T> observer, P params) {
-        final Observable<T> observable = this.buildUseCaseObservable(params)
-                .subscribeOn(Schedulers.newThread())
-                .observeOn(Schedulers.io());
+        final Observable<T> observable = this.buildUseCaseObservable(params);
         addDisposable(observable.subscribeWith(observer));
     }
 

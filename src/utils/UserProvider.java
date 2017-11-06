@@ -1,6 +1,6 @@
 package utils;
 
-import domain.model.User;
+import domain.model.Account;
 import utils.io.FileReader;
 
 import java.util.ArrayList;
@@ -10,11 +10,11 @@ public final class UserProvider {
 
     private UserProvider() {}
 
-    public static List<User> provideUserList() {
-        List<User> users = new ArrayList<>();
+    public static List<Account> provideUserListFromFile(final String path) {
+        List<Account> accounts = new ArrayList<>();
         FileReader fileReader = new FileReader();
-        fileReader.read(Constants.UNCHECKED_USERS_FILE_PATH).subscribe(users::add);
-        return users;
+        fileReader.read(path).subscribe(accounts::add);
+        return accounts;
     }
 
 }

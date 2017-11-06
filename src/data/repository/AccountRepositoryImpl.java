@@ -1,6 +1,7 @@
 package data.repository;
 
-import domain.model.User;
+import domain.model.Account;
+import domain.model.Response;
 import domain.net.TerminalApi;
 import domain.repository.AccountRepository;
 import io.reactivex.Observable;
@@ -14,7 +15,18 @@ public class AccountRepositoryImpl implements AccountRepository {
     }
 
     @Override
-    public Observable<User> createAccount(String name, String username, String email, String password) {
+    public Observable<Account> createAccount(String name, String username, String email, String password) {
         return api.createAccount(name, username, email, password);
     }
+
+    @Override
+    public Observable<Response> subscribeAccount(Account user1, Account user2) {
+        return api.subscribeAccount(user1, user2);
+    }
+
+    @Override
+    public Observable<Response> postPhotoToAccount(Account user, String path) {
+        return api.postPhotoToAccount(user, path);
+    }
+
 }
